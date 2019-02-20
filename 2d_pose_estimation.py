@@ -3,13 +3,13 @@ import matplotlib
 import pylab as plt
 import numpy as np
 import util
-import datetime
+import time
 
 extensions_img = {".jpg", ".png", ".gif", ".bmp", ".jpeg"}
 filelist = os.listdir('sample_images')
 filelist.sort()
 for filename in filelist:
-  start = datetime.datetime.now()
+  start = time.time()
   for ext in extensions_img:
     if filename.endswith(ext):
       test_image = 'sample_images/'+filename
@@ -118,7 +118,7 @@ for filename in filelist:
 
       o['people'][0]['pose_keypoints'] = all_peaks_flat
 
-      end = datetime.datetime.now()
-      print (end-start)
+ 
+      print (time.time()-start)
       with open('sample_jsons/'+file_noExt+'.json', 'w') as outfile:
           json.dump(o, outfile)
