@@ -6,8 +6,9 @@ import util
 import datetime
 
 extensions_img = {".jpg", ".png", ".gif", ".bmp", ".jpeg"}
-
-for filename in sort(os.listdir('sample_images')):
+filelist = os.listdir('sample_images')
+filelist.sort()
+for filename in filelist:
   start = datetime.datetime.now()
   for ext in extensions_img:
     if filename.endswith(ext):
